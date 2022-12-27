@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+    sentimentAPI:
+        build: ml-er/.
+        ports: 
+            - "8081:8081" 
+        restart: "always"
+    
+        environment:
+            - GUNICORN_THREADS=1
+            - GUNICORN_WORKERS=1 
+        volumes:
+          
+            - "./ml-er/models:/var/www/models"
+            
+
+
